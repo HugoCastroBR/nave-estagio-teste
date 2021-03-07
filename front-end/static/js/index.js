@@ -10,7 +10,7 @@ function generateNaver(infos){
     const naverTemplate= `
             <div class="Naver_Card">
                 <div class="Naver_Card__image_container">
-                    <img src="${infos.image_url}" alt="" class="Naver_Card__image">
+                    <img src="${infos.image_url}" alt="${infos.name} ${infos.job_role}" class="Naver_Card__image">
                 </div>
                 <div class="Naver_Card__infos">
                     <h2 class="Naver_Card__infos__name">${infos.name}</h2>
