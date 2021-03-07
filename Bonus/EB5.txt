@@ -1,0 +1,4 @@
+use nave;
+
+SELECT 
+DISTINCT id, CONCAT(name, "(",count(id),")") as Nome_Projeto_Numero_Pessoas from projects group by name ;

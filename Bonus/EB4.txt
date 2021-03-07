@@ -1,0 +1,14 @@
+SELECT 
+navers.id AS id,
+navers.name AS name,
+birthdate,admission_date,job_role
+,idProject,
+projects.name AS project_name
+FROM 
+navers
+INNER JOIN
+naversprojects
+on 
+navers.id = naversprojects.idNaver
+INNER JOIN projects on naversprojects.idProject = projects.id
+WHERE navers.id = ${id};

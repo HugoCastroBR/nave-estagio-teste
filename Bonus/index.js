@@ -4,7 +4,7 @@ const connect = require('./structure/database/connect.js')
 class Tables {
     init(connect){
         this.connect = connect
-        this.criarBD()
+        this.criarBD() // ExcluirBD(), Adicionar(ITEM,TABLE), Delete(id,table) 
     }
 
     criarBD(){

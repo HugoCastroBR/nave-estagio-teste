@@ -1,0 +1,5 @@
+SELECT * FROM navers
+   ORDER BY 
+      SUBSTR( admission_date, 7, 4), 
+      SUBSTR( admission_date, 4, 2),
+      SUBSTR( admission_date, 1, 2)
