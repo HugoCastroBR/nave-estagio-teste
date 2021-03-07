@@ -13,41 +13,43 @@ class Projects{
         let navers = project.navers
 
         let maiorID = 0
-        if(navers.length > 1){
+
+        try{
             navers = navers.split(',')
             navers = navers.map(nmr => {
                 return parseInt(nmr)
             })
-        }else{
-            
-        }
-
-        connect.query('select * from projects order by id desc limit 1', (error,results) => {
-            if(error){
-                console.log('erro')
-                console.log(error)
-            }else{
-                maiorID =  results[0].id
-                connect.query('select * from navers order by id desc limit 1', (error,results) => 
-                {
-                    if(error){
-                        console.log('erro')
-                        console.log(error)
-                    }
-                    else
+            connect.query('select * from projects order by id desc limit 1', (error,results) => {
+                if(error){
+                    console.log('erro')
+                    console.log(error)
+                }else{
+                    maiorID =  results[0].id
+                    connect.query('select * from navers order by id desc limit 1', (error,results) => 
                     {
-                        const maiorIdNaver =  results[0].id
-                        navers.forEach( naver => {
-                        NaversProjects.add([naver,maiorID + 1],res)
-                        })
-                    }
-                })
-            }
-            delete project.navers
-            console.log(project)
+                        if(error){
+                            console.log('erro')
+                            console.log(error)
+                        }
+                        else
+                        {
+                            const maiorIdNaver =  results[0].id
+                            navers.forEach( naver => {
+                            NaversProjects.add([naver,maiorID + 1],res)
+                            })
+                        }
+                    })
+                }
+                delete project.navers
+                const sql = ('INSERT INTO projects SET ?')
+                _query(sql,res,project)
+            })
+        }catch(error){
             const sql = ('INSERT INTO projects SET ?')
             _query(sql,res,project)
-        })
+        }
+
+        
     }
 
     search(res,id = null){
@@ -96,7 +98,7 @@ class Projects{
                                 "project": result.project_name
                             })
                         })
-    
+
     
                         project_act[0].Navers = resposta
                         return res.status(200).json(project_act[0])

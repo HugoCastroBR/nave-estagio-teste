@@ -10,7 +10,6 @@ class naversprojects{
     
 
     async add(naversprojects,res){
-        console.log(naversprojects)
         const sql = await(`INSERT INTO naversprojects SET idNaver = ${naversprojects[0]}, idProject = ${naversprojects[1]}`)
         await connect.query(sql)
     }
