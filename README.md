@@ -48,20 +48,18 @@ Toda a API aceita JSON e retorna JSON.
 
 ### Rotas navers
 #### (index):
-
-metodo: GET
-
-Rota: http://localhost:3000/navers
+> Rota: http://localhost:3000/navers
+> 
+*metodo: GET*
 
 Retorno Esperado:
 
 Lista em JSON com todos os navers
 
 #### (Show):
-
-metodo: GET
-
-Rota: http://localhost:3000/navers/id => onde id é o id do naver
+> Rota: http://localhost:3000/navers/id => onde id é o id do naver
+> 
+*metodo: GET*
 
 Retorno Esperado:
 
@@ -69,37 +67,43 @@ JSON com o naver e seus projetos, porem caso o naver não tenha projetos não se
 
 
 #### (STORE):
-
-metodo: POST
+> Rota: http://localhost:3000/navers
+> 
+*metodo: POST*
 
 body: 
-
 passar os seguintes valores 
-{ name: "",
+```
+{ 
+  name: "",
   birthdate: AAAA-MM-DD,
   admission_date: AAAA-MM-DD,
   job_role: "",
   projects: 0,
 }
-
+```
 Caso nenhum project não passe o atributo projects!
 
 Exemplo:
-{ name: Ciclano,
+```
+{ 
+  name: Ciclano,
   birthdate: 1998-06-12,
   admission_date: 2018-06-12,
   job_role: Desenvolvedor,
   projects: 5,6
 }
-
+```
 Exemplo Sem projetos:
-{ name: Ciclano,
+```
+{ 
+  name: Ciclano,
   birthdate: 1998-06-12,
   admission_date: 2018-06-12,
   job_role: Desenvolvedor
 }
+```
 
-Rota: http://localhost:3000/navers
 
 Retorno Esperado:
 
@@ -109,10 +113,9 @@ results em JSON e status 201 !
 ### Rotas projetos
 
 #### (index):
-
-metodo: GET
-
-Rota: http://localhost:3000/projects
+> Rota: http://localhost:3000/projects
+> 
+*metodo: GET*
 
 Retorno Esperado:
 
@@ -120,9 +123,9 @@ Lista em JSON com todos os projetos
 
 #### (Show):
 
-metodo: GET
+> Rota: http://localhost:3000/projects/id => onde id é o id do projeto
 
-Rota: http://localhost:3000/projects/id => onde id é o id do projeto
+*metodo: GET*
 
 Retorno Esperado:
 
@@ -131,26 +134,31 @@ JSON com o projeto e seus navers, porem caso o projeto não tenha navers não se
 
 #### (STORE):
 
-metodo: POST
+> Rota: http://localhost:3000/projects
 
-body: { 
+*metodo: POST*
+
+ body: 
+```
+{ 
   name: "",
   navers: 0,0
 }
-
+```
 se não tiver navers, não passar atributo navers
 
 Exemplo: 
-body: { 
+```
+{ 
   name: melhor projeto,
   navers: 1,5
 }
-
+```
 Exemplo sem navers:
-
-body: { 
-  name: ""
+```
+{ 
+  name: "O projeto"
 }
-
+```
 Retorno esperado:
 JSON com results e status 201,
