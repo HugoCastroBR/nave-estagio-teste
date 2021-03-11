@@ -28,7 +28,7 @@ Na pasta raiz (./API), rodar npm install
 configurar o connect.js de acordo com seu banco de dados
 
 
-Obs: Criar Banco de dados com nome "nav"
+Obs: Criar Banco de dados com nome "nave"
 
 isso pode ser modificado em connect.js
 
